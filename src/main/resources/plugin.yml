@@ -1,0 +1,9 @@
+name: InventoryExample
+version: '1.0.0'
+main: com.unfamousthomas.exampleinvs.Main
+api-version: '1.21'
+
+commands:
+  randommenu:
+    description: Opens random menu.
+    usage: /<command>
