@@ -7,3 +7,6 @@ commands:
   randommenu:
     description: Opens random menu.
     usage: /<command>
+  randomothermenu:
+    description: Opens other menu
+    usage: /<command>
