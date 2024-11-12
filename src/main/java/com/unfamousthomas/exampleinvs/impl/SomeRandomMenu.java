@@ -16,7 +16,6 @@ public class SomeRandomMenu extends BaseInventory {
       @Override
       public void onClick(Player player, ItemStack itemStack) {
         player.sendMessage(Component.text("CLICKED"));
-        System.out.println("CLICKED");
       }
     });
   }

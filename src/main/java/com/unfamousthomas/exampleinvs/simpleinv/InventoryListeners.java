@@ -32,7 +32,9 @@ public class InventoryListeners implements Listener {
   //Removes user from open inventories
   @EventHandler
   public void closeInventory(InventoryCloseEvent e) {
-    if(!(e.getInventory() instanceof BaseInventory)) return;
+    Player player = (Player) e.getPlayer();
+    BaseInventory inventory = BaseInventory.getInventory(player);
+    if(inventory == null) return;
 
     BaseInventory.setClosed(e.getPlayer().getUniqueId());
   }
