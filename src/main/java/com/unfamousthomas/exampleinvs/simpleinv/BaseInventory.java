@@ -22,14 +22,22 @@ public class BaseInventory {
   }
   //Opens inventory
   public void open(Player player) {
+    inventory.clear();
+    for (Integer invIndex : items.keySet()) {
+      inventory.setItem(invIndex, items.get(invIndex).getItemProvider().getItem(player));
+    }
     player.openInventory(inventory);
     openInventories.put(player.getUniqueId(), this);
   }
 
   //Method for setting items
   protected void setItem(int slot, ItemStack stack, Action action) {
-    items.put(slot, new InventoryItem(stack, action));
-    inventory.setItem(slot, stack);
+    items.put(slot, new InventoryItem(new StaticItemProvider(stack), action));
+  }
+
+  protected void setItem(int slot, ItemProvider itemProvider, Action action) {
+    InventoryItem item = new InventoryItem(itemProvider, action);
+    items.put(slot, item);
   }
 
   public Map<Integer, InventoryItem> getItems() {

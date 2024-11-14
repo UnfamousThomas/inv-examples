@@ -25,7 +25,7 @@ public class InventoryListeners implements Listener {
     if(item == null) return;
     if(item.getAction() == null) return;
 
-    item.getAction().onClick(player, item.getItemStack());
+    item.getAction().onClick(player, item.getItemProvider().getItem(player));
 
   }
 
